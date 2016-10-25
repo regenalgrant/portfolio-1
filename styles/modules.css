@@ -1,0 +1,43 @@
+.header-menu-ul{
+  list-style-type: none;
+  display: none;
+  width: 15%;
+}
+
+.header-menu-ul li a{
+  color: white;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1.25em;
+}
+
+.header-menu-ul li{
+  display: block;
+  background-color: rgb(41, 66, 64);
+}
+
+.header-menu-ul:hover{
+  cursor: pointer;
+}
+
+@media screen and (min-width:500px) {
+
+  .header-menu-ul {
+    display: block;
+    width: 75%;
+    margin: 0 auto;
+    margin-top: 5%;
+  }
+
+  .header-menu-ul li{
+    display: inline;
+    padding: 6%;
+    border-radius: 10%;
+    background-color: rgb(41, 66, 64);
+  }
+
+  .header-menu-ul li:hover{
+    background-color: rgba(76, 131, 127, .7);
+    transition: background-color 350ms ease;
+  }
+}
