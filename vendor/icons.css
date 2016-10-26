@@ -1,10 +1,6 @@
 @font-face {
 	font-family: 'icomoon';
-	src:url('fonts/icomoon.eot');
-	src:url('fonts/icomoon.eot#iefix') format('embedded-opentype'),
-		url('IcoMoon-Free/Font/IcoMoon-Free.ttf') format('truetype'),
-		url('fonts/icomoon.woff') format('woff'),
-		url('fonts/icomoon.svg#icomoon') format('svg');
+	src:url('IcoMoon-Free/Font/IcoMoon-Free.ttf') format('truetype');
 	font-weight: normal;
 	font-style: normal;
 }
@@ -52,4 +48,7 @@
 }
 .icon-menu4:before {
     content: "\e9c0";
+}
+.icon-mail:before {
+    content: "\ea84";
 }

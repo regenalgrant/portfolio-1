@@ -3,23 +3,37 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale =1">
+    <link rel="stylesheet" href="vendor/styles/normalize.css">
+    <link rel="stylesheet" href="vendor/icons.css">
     <link rel="stylesheet" href="styles/base.css">
     <link rel="stylesheet" href="styles/layout.css">
     <link rel="stylesheet" href="styles/modules.css">
     <title>Conor Clary Portfolio</title>
   </head>
+
   <body>
     <header>
         <nav class="header-menu">
+          <div class="menu-icon-div">
+            <span class="icon-menu"></span>
+          </div>
           <ul class="header-menu-ul">
-            <li><a href="#">Home</a></li>
-            <li><a href="/about.html">About</a></li>
-            <li><a href="/contact.html">Contact</a></li>
+            <li><a href="index.html" class="icon-home"><span class="hide">Home</span></a></li>
+            <li><a href="https://github.com/Copenbacon" class="icon-github"><span class="hide">Github</span></a></li>
+            <li><a href="https://www.linkedin.com/in/conor-clary-54b5682b" class="icon-linkedin"><span class="hide">LinkedIn</span></a></li>
+            <li><a href="https://www.instagram.com/copenbacon/" class="icon-instagram"><span class="hide">Instagram</span></a></li>
+            <li><a href="mailto:conor.clary@gmail.com" class="icon-mail"><span class="hide">Correspond</span></a></li>
+            <li><a href="pages/aboutme.html" class="icon-profile"><span class="hide">Conor Clary</span></a></li>
           </ul>
         </nav>
+        <h4 id="index-title">Conor Clary Portfolio Pieces</h4>
     </header>
     <section id="home-top-third">
-
+      <article class="template" data-category="cat">
+            <h1 id="title-portfolio-item">Title</h1>
+              <a href="" id="url-portfolio-item"><img src="" alt="" id="image-portfolio-item"/><figcaption id="figcaption-portfolio-item"></figcaption></a>
+              published <time pubdate datetime="2000-01-01">Publish Time</time>
+      </article>
     </section>
     <section id="home-middle-third">
 
@@ -29,5 +43,8 @@
     </section>
     <footer>
     </footer>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
+    <script type='text/javascript' src='scripts/portfolioItems.js'></script>
+    <script type='text/javascript' src='scripts/app.js'></script>
   </body>
 </html>

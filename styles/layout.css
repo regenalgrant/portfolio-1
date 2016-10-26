@@ -1,0 +1,11 @@
+section {
+  width: 90%;
+  margin: auto;
+}
+
+@media screen and (min-width:605px) {
+  section {
+    width: 85%;
+    margin: auto;
+  }
+}
