@@ -78,7 +78,14 @@ article.portfolio-pieces:hover {
   transition: background-color 1000ms ease;
 }
 
-@media screen and (min-width:605px) {
+#index-title {
+  text-align: center;
+  width: 90%;
+  margin: auto;
+  color: black;
+}
+
+@media screen and (min-width:600px) {
   .menu-icon-div {
     display: none;
   }
@@ -109,8 +116,8 @@ article.portfolio-pieces:hover {
 
   article.portfolio-pieces {
     display: inline-block;
+    width: 45%;
     margin: 2% 1%;
-    width: 30%;
   }
 
   .ccPic {
@@ -126,4 +133,15 @@ article.portfolio-pieces:hover {
 
   }
 
+  span.hide {
+    display: none;
+  }
+}
+
+@media screen and (min-width:855px) {
+  article.portfolio-pieces {
+    display: inline-block;
+    width: 30%;
+    margin: 2% 1%;
+  }
 }
