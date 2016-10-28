@@ -86,10 +86,11 @@ article.portfolio-pieces:hover {
   transition: background-color 1000ms ease;
 }
 
-#index-title {
+.index-title {
   text-align: center;
   width: 90%;
   margin: auto;
+  margin-top: 2%;
   color: black;
 }
 
