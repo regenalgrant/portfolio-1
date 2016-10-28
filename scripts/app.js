@@ -1,30 +1,30 @@
 var portfolioPieces = [];
+var aboutMePieces = [];
 
 function Piece(arg) {
-  this.title = arg.title;
-  this.category = arg.category;
-  this.url = arg.url;
-  this.picture = arg.picture;
-  this.description = arg.description;
-  this.published = arg.published;
-  this.alt = arg.alt;
-  this.body = arg.body;
+  for (key in arg) {
+    this[key] = arg[key];
+  }
+}
+
+function AboutMe(arg) {
+  for (key in arg) {
+    this[key] = arg[key];
+  }
 }
 
 Piece.prototype.toHtml = function(){
-  var $newPiece =  $('article.template').clone();
-  $newPiece.attr('data-category', this.category);
-  $newPiece.find('#title-portfolio-item').text(this.title);
-  $newPiece.find('#url-portfolio-item').attr('href', this.url);
-  $newPiece.find('#image-portfolio-item').attr('src', this.picture);
-  $newPiece.find('#image-portfolio-item').attr('alt', this.alt);
-  $newPiece.find('#figcaption-portfolio-item').text(this.description);
-  $newPiece.find('time[pubdate]').attr('title', this.published);
-  $newPiece.find('time').text('about ' + parseInt((new Date() - new Date(this.published))/60/60/24/1000) + ' days ago');
-  $newPiece.find('#body-portfolio-item').html(this.body);
-  $newPiece.removeClass('template');
-  $newPiece.addClass('portfolio-pieces');
-  return $newPiece;
+  this.daysAgo = parseInt((new Date() - new Date(this.published)) / 60 / 60 / 24 / 1000);
+  this.publishStatus = this.published ? 'published about  ' + this.daysAgo + ' days ago' : '(draft)';
+  var source = $('#portfolio-items-template').html();
+  var templateRender = Handlebars.compile(source);
+  return templateRender(this);
+};
+
+AboutMe.prototype.toHtml = function () {
+  var source = $('#about-items-template').html();
+  var templateRender = Handlebars.compile(source);
+  return templateRender(this);
 };
 
 portfolioPieces.handleMainNav = function () {
@@ -32,15 +32,15 @@ portfolioPieces.handleMainNav = function () {
     $('.contentBtn-content').hide();
     var $idContent = $(this).data().content;
     console.log($idContent, 'id Content');
-    $('#' + $idContent).fadeIn();
+    $('#' + $idContent).show();
     $idContent = '';
   });
-  // $('.main-nav .tab:first').click();
+  $('.header-menu .contentBtn:first').click();
 };
 
 portfolioPieces.setTeasers = function() {
 
-  $('#body-portfolio-item :only-child').hide();
+  $('.body-portfolio-item').hide();
 
   $('.read-on').on('click', function(event){
     console.log('clicked: ', $(this).text());
@@ -51,7 +51,7 @@ portfolioPieces.setTeasers = function() {
       console.log('I should show more now');
     } else {
       $(this).text('Show More →');
-      $(this).prev('p').children().hide();
+      $(this).siblings('.body-portfolio-item').hide();
       console.log('I should show less now');
     };
   });
@@ -67,6 +67,14 @@ portfolioItems.forEach(function(ele) {
 
 portfolioPieces.forEach(function(article) {
   $('#home-top-third').append(article.toHtml());
+});
+
+aboutMeItems.forEach(function(ele) {
+  aboutMePieces.push(new AboutMe(ele));
+});
+
+aboutMePieces.forEach(function(article) {
+  $('#home-middle-third').append(article.toHtml());
 });
 
 portfolioPieces.handleMainNav();
