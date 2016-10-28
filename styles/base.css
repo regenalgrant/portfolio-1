@@ -2,3 +2,8 @@ html body {
   background-color: rgb(235, 226, 226);
   font-family: sans-serif;
 }
+
+section {
+  width: 95%;
+  margin: auto;
+}
